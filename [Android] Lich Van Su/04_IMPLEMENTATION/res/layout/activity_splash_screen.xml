@@ -5,11 +5,10 @@
 	tools:context=".SplashScreenActivity" >
 
 	<ImageView
-		android:id="@+id/splashImage"
+		android:id="@+id/imgSplash"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
 		android:layout_alignParentLeft="true"
-		android:layout_alignParentRight="true"
 		android:layout_alignParentTop="true"
 		android:src="@drawable/splash_screen" />
 
