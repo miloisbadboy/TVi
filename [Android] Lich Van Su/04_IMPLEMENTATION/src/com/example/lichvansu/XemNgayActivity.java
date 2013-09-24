@@ -1,14 +1,25 @@
 package com.example.lichvansu;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ExecutionException;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.support.v4.app.NavUtils;
+import android.text.Html;
+import android.text.method.ScrollingMovementMethod;
 import android.annotation.TargetApi;
 import android.os.Build;
 
 public class XemNgayActivity extends Activity {
+	TextView txtResult;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +27,33 @@ public class XemNgayActivity extends Activity {
 		setContentView(R.layout.activity_xem_ngay);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		
+		txtResult = (TextView) findViewById(R.id.txtResult);
+		txtResult.setMovementMethod(new ScrollingMovementMethod());
+
+		String strUrl = "http://api.tamlinh.vn/lichVanSu/xemNgay/xem/ngay/23/thang/9/nam/2013/key/tvi1102";
+
+		AsyncTask<String, Void, HashMap<String, String[]>> task = new DataFetchingOperation();
+		task.execute(strUrl);
+
+		try {
+			HashMap<String, String[]> data = task.get();
+			String strResult = "";
+
+			Iterator<String> it = data.keySet().iterator();
+
+			while (it.hasNext()) {
+				String key = it.next();
+
+				strResult += "<p><b>" + data.get(key)[0] + ":</b>  "
+						+ data.get(key)[1] + "</p>";
+			}
+
+			txtResult.setText(Html.fromHtml(strResult));		
+		} catch (Exception e) {
+			new AlertDialog.Builder(this).setTitle(e.getClass().toString())
+					.setMessage(e.getMessage()).show();
+		}
 	}
 
 	/**

@@ -4,4 +4,14 @@
 	android:layout_height="match_parent"
 	tools:context=".XemNgayActivity" >
 
+	<TextView
+		android:id="@+id/txtResult"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentRight="true"
+		android:layout_alignParentTop="true"
+		android:maxLines="100"
+		android:scrollbars="vertical" />
+
 </RelativeLayout>

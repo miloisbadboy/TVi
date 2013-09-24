@@ -4,6 +4,8 @@
 	android:versionCode="1"
 	android:versionName="1.0" >
 
+	<uses-permission android:name="android.permission.INTERNET" />
+
 	<uses-sdk
 		android:minSdkVersion="8"
 		android:targetSdkVersion="17" />
@@ -21,7 +23,7 @@
 		<activity
 			android:name="com.example.lichvansu.SplashScreenActivity"
 			android:label="@string/title_activity_splash_screen"
-			android:theme="@android:style/Theme.Light.NoTitleBar" >
+			android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 
