@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Chiêm Tinh App</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="horoscope">Tử vi theo cung</string>
+    <string name="partner">Xem cung hợp làm ăn</string>
+    <string name="lover">Xem cung hợp kết duyên</string>
+    <string name="biology_graph">Nhịp sinh học</string>
+    <string name="profile_management">Quản lí tài khoản</string>
+    <string name="title_activity_lover">LoverActivity</string>
+
+</resources>

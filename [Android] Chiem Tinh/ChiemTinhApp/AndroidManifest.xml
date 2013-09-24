@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.chiemtinhapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.chiemtinhapp.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.chiemtinhapp.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.chiemtinhapp.PickerActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="com.chiemtinhapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chiemtinhapp.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.chiemtinhapp.HoroscopeActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="com.chiemtinhapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chiemtinhapp.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.chiemtinhapp.LoverActivity"
+            android:label="@string/title_activity_lover"
+            android:parentActivityName="com.chiemtinhapp.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chiemtinhapp.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>
