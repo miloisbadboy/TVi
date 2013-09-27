@@ -1,10 +1,12 @@
-package com.chiemtinhapp;
+package com.chiemtinhapp.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+
+import com.chiemtinhapp.R;
 
 public class PickerActivity extends Activity {
 	public static final String HOROSCOPE_NUMBER = "horoscopeNumber";
@@ -21,7 +23,7 @@ public class PickerActivity extends Activity {
 	
 	public void horoscope_onClick(View view) {
 		Intent data = new Intent();
-		data.putExtra(com.chiemtinhapp.PickerActivity.HOROSCOPE_NUMBER, view.getTag().toString());
+		data.putExtra(com.chiemtinhapp.activity.PickerActivity.HOROSCOPE_NUMBER, view.getTag().toString());
 		setResult(RESULT_OK, data);
 		finish();
 	}

@@ -1,4 +1,4 @@
-package com.chiemtinhapp;
+package com.chiemtinhapp.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,7 +16,7 @@ public class SplashActivity extends Activity{
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(SplashActivity.this, com.chiemtinhapp.MainActivity.class);
+                Intent mainIntent = new Intent(SplashActivity.this, com.chiemtinhapp.activity.MainActivity.class);
                 SplashActivity.this.startActivity(mainIntent);
                 SplashActivity.this.finish();
             }
