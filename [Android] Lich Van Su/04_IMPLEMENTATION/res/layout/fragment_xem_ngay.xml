@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".XemNgayFragment" >
+
+	<!-- TODO: Update blank fragment layout -->
+
+	<TextView
+		android:id="@+id/txtTitle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp"
+		android:gravity="center"
+		android:text="Tháng 9 Năm 2013"
+		android:textAlignment="center"
+		android:textColor="#FF0000"
+		android:textSize="26dp" />
+
+	<TextView
+		android:id="@+id/txtBigDate"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="6dp"
+		android:text="27"
+		android:textColor="#FF0000"
+		android:textSize="170dp" />
+
+	<TextView
+		android:id="@+id/txtDayOfWeek"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/txtTitle"
+		android:layout_marginTop="162dp"
+		android:gravity="center"
+		android:text="Thứ 6"
+		android:textSize="32dp"
+		android:textStyle="bold" />
+
+	<TextView
+		android:id="@+id/txtInfo"
+		android:layout_width="fill_parent"
+		android:layout_height="60dp"
+		android:layout_below="@+id/txtDayOfWeek"
+		android:gravity="center"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+		android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius massa orci, eu euismod mauris tincidunt adipiscing."
+		android:textSize="14dp" />
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" >
+
+		<TextView
+			android:id="@+id/txtHour"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:layout_weight=".40"
+			android:text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa" />
+	</LinearLayout>
+
+</RelativeLayout>
