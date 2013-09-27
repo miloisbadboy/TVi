@@ -2,47 +2,12 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:paddingBottom="@dimen/activity_vertical_margin"
-	android:paddingLeft="@dimen/activity_horizontal_margin"
-	android:paddingRight="@dimen/activity_horizontal_margin"
-	android:paddingTop="@dimen/activity_vertical_margin"
 	tools:context=".MainActivity" >
 
-	<Button
-		android:id="@+id/btn_doi_ngay_am_duong"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true"
-		android:layout_alignParentRight="true"
-		android:layout_centerVertical="true"
-		android:text="Đổi ngày âm dương" />
-
-	<Button
-		android:id="@+id/btn_xem_ngay"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_above="@+id/btn_chon_ngay_tot_xau"
-		android:layout_alignLeft="@+id/btn_chon_ngay_tot_xau"
-		android:layout_alignRight="@+id/btn_chon_ngay_tot_xau"
-		android:onClick="btn_xem_ngay_onClick"
-		android:text="Xem ngày" />
-
-	<Button
-		android:id="@+id/btn_chon_ngay_tot_xau"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_above="@+id/btn_doi_ngay_am_duong"
-		android:layout_alignLeft="@+id/btn_doi_ngay_am_duong"
-		android:layout_alignRight="@+id/btn_doi_ngay_am_duong"
-		android:text="Chọn ngày tốt xấu" />
-
-	<Button
-		android:id="@+id/btn_su_kien"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignLeft="@+id/btn_doi_ngay_am_duong"
-		android:layout_alignRight="@+id/btn_doi_ngay_am_duong"
-		android:layout_below="@+id/btn_doi_ngay_am_duong"
-		android:text="Sự kiện" />
+	<FrameLayout
+		android:id="@+id/container"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent" >
+	</FrameLayout>
 
 </RelativeLayout>
