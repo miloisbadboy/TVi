@@ -2,7 +2,9 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:padding="10dp"
+	android:paddingLeft="10dp"
+	android:paddingRight="10dp"
+	android:paddingTop="5dp"
 	tools:context=".DateConverterFragment" >
 
 	<TextView
@@ -19,8 +21,7 @@
 		android:layout_width="95dp"
 		android:layout_height="wrap_content"
 		android:layout_alignParentLeft="true"
-		android:layout_below="@+id/txt_solar"
-		android:layout_marginTop="5dp" />
+		android:layout_below="@+id/txt_solar" />
 
 	<NumberPicker
 		android:id="@+id/numpckr_month"
@@ -43,7 +44,7 @@
 		android:layout_height="wrap_content"
 		android:layout_below="@+id/numpckr_date"
 		android:layout_centerInParent="true"
-		android:layout_marginTop="15dp"
+		android:layout_marginTop="10dp"
 		android:text="Âm Lịch"
 		android:textSize="22dp" />
 
@@ -52,8 +53,7 @@
 		android:layout_width="95dp"
 		android:layout_height="wrap_content"
 		android:layout_alignParentLeft="true"
-		android:layout_below="@+id/txt_lunar"
-		android:layout_marginTop="5dp" />
+		android:layout_below="@+id/txt_lunar" />
 
 	<NumberPicker
 		android:id="@+id/numpckr_month_lunar"

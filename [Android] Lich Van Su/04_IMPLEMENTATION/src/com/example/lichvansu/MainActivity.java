@@ -1,4 +1,4 @@
-package com.example.lichvansu.main;
+package com.example.lichvansu;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -12,6 +12,7 @@ import android.view.Menu;
 import com.example.lichvansu.R;
 import com.example.lichvansu.datecalendar.DateCalendarFragment;
 import com.example.lichvansu.dateconverter.DateConverterFragment;
+import com.example.lichvansu.monthcalendar.MonthCalendarFragment;
 
 public class MainActivity extends FragmentActivity implements TabListener {
 
@@ -29,7 +30,7 @@ public class MainActivity extends FragmentActivity implements TabListener {
 
 		actionBar.addTab(actionBar.newTab().setText("Lịch Ngày")
 				.setTabListener((TabListener) this));
-		actionBar.addTab(actionBar.newTab().setText("Chọn Ngày")
+		actionBar.addTab(actionBar.newTab().setText("Lịch Tháng")
 				.setTabListener((TabListener) this));
 		actionBar.addTab(actionBar.newTab().setText("Đổi Ngày")
 				.setTabListener((TabListener) this));
@@ -66,7 +67,7 @@ public class MainActivity extends FragmentActivity implements TabListener {
 				fragment = new DateCalendarFragment();
 				break;
 			case 1:
-				fragment = new DateCalendarFragment();
+				fragment = new MonthCalendarFragment();
 				break;
 			case 2:
 				fragment = new DateConverterFragment();

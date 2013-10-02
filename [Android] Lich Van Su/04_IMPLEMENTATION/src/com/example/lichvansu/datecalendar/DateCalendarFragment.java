@@ -1,6 +1,6 @@
 package com.example.lichvansu.datecalendar;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,7 +20,7 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 	private static final int SWIPE_MIN_DISTANCE = 20;
 	private GestureDetector gestureDetector;
 	private View.OnTouchListener gestureListener;
-	private Date currentDate;
+	private Calendar currentDate;
 
 	{
 		gestureDetector = new GestureDetector(
@@ -30,7 +30,7 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 				return gestureDetector.onTouchEvent(event);
 			}
 		};
-		currentDate = new Date();
+		currentDate = Calendar.getInstance();
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 
 	private void nextDate() {
 		// Change current state
-		currentDate.setTime(currentDate.getTime() + 86400000);
+		currentDate.add(Calendar.DATE, 1);
 
 		// Do the fragment transaction
 		getChildFragmentManager()
@@ -70,7 +70,7 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 
 	private void prevDate() {
 		// Change current state
-		currentDate.setTime(currentDate.getTime() - 86400000);
+		currentDate.add(Calendar.DATE, -1);
 
 		// Do the fragment transaction
 		getChildFragmentManager()
@@ -83,11 +83,7 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 
 	private void nextMonth() {
 		// Change current state
-		int oldMonth = currentDate.getMonth();
-		currentDate.setMonth(currentDate.getMonth() + 1);
-		while (Math.abs(currentDate.getMonth() - oldMonth) != 1) {
-			currentDate.setTime(currentDate.getTime() - 86400000);
-		}
+		currentDate.add(Calendar.MONTH, 1);
 
 		// Do the fragment transaction
 		getChildFragmentManager()
@@ -100,11 +96,7 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 
 	private void prevMonth() {
 		// Change current state
-		int oldMonth = currentDate.getMonth();
-		currentDate.setMonth(currentDate.getMonth() - 1);
-		while (Math.abs(currentDate.getMonth() - oldMonth) != 1) {
-			currentDate.setTime(currentDate.getTime() - 86400000);
-		}
+		currentDate.add(Calendar.MONTH, -1);
 
 		// Do the fragment transaction
 		getChildFragmentManager()
@@ -115,12 +107,13 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 						getElementFragment(currentDate)).commit();
 	}
 
-	private Fragment getElementFragment(Date date) {
+	private Fragment getElementFragment(Calendar date) {
 		Fragment frag = new DateCalendarElementFragment();
 		Bundle args = new Bundle();
-		args.putInt("date", currentDate.getDate());
-		args.putInt("month", currentDate.getMonth());
-		args.putInt("year", currentDate.getYear());
+		args.putInt("date", currentDate.get(Calendar.DATE));
+		args.putInt("month", currentDate.get(Calendar.MONTH) + 1);
+		args.putInt("year", currentDate.get(Calendar.YEAR));
+		args.putInt("day_of_week", currentDate.get(Calendar.DAY_OF_WEEK));
 		frag.setArguments(args);
 
 		return frag;

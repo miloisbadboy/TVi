@@ -1,23 +1,17 @@
 package com.example.lichvansu.datecalendar;
 
-import java.util.Date;
-
-import com.example.lichvansu.R;
-import com.example.lichvansu.R.id;
-import com.example.lichvansu.R.layout;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.lichvansu.R;
+
 public class DateCalendarElementFragment extends Fragment {
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -26,10 +20,10 @@ public class DateCalendarElementFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_date_calendar_element,
 				container, false);
 		
-		Date currentDate = new Date(args.getInt("year"), args.getInt("month"), args.getInt("date")); 
-		int date = currentDate.getDate();
-		int month = currentDate.getMonth() + 1;
-		int year = currentDate.getYear() + 1900;
+		int date = args.getInt("date");
+		int month = args.getInt("month");
+		int year = args.getInt("year");
+		int dayOfWeek = args.getInt("day_of_week");
 		
 		TextView txtBigDate = (TextView) view.findViewById(R.id.txt_big_date);
 		txtBigDate.setText(date + "");
@@ -39,8 +33,8 @@ public class DateCalendarElementFragment extends Fragment {
 		
 		TextView txtDayOfWeek = (TextView) view.findViewById(R.id.txt_day_of_week);
 		String strDayOfWeek = "";
-		switch (currentDate.getDay()) {
-			case 0:
+		switch (dayOfWeek) {
+			case 7:
 				strDayOfWeek = "Chủ nhật";
 				txtBigDate.setTextColor(Color.RED);
 				txtTitle.setTextColor(Color.RED);

@@ -1,4 +1,4 @@
-package com.example.lichvansu;
+package com.example.lichvansu.helper;
 
 import java.net.URL;
 import java.net.URLConnection;
@@ -52,7 +52,7 @@ public class DataFetchingOperation extends
 					String eValue = element.getElementsByTagName("value")
 							.item(0).getTextContent();
 
-					data.put(eName, new String[] { eTitle, eValue });
+					data.put(eName, new String[] { eName, eTitle, eValue });
 				}
 			}
 

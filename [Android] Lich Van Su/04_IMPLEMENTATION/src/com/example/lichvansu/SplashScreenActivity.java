@@ -1,8 +1,7 @@
-package com.example.lichvansu.splashscreen;
+package com.example.lichvansu;
 
 import com.example.lichvansu.R;
 import com.example.lichvansu.R.layout;
-import com.example.lichvansu.main.MainActivity;
 
 import android.app.Activity;
 import android.content.Intent;
