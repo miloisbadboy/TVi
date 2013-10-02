@@ -11,6 +11,7 @@ import android.view.Menu;
 
 import com.example.lichvansu.R;
 import com.example.lichvansu.datecalendar.DateCalendarFragment;
+import com.example.lichvansu.dateconverter.DateConverterFragment;
 
 public class MainActivity extends FragmentActivity implements TabListener {
 
@@ -55,22 +56,28 @@ public class MainActivity extends FragmentActivity implements TabListener {
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft) {
 		Fragment fragment = new DateCalendarFragment();
-		// Bundle args = new Bundle();
-		// args.putInt(DateCalendarFragment.ARG_SECTION_NUMBER,
-		// tab.getPosition() + 1);
-		// fragment.setArguments(args);
+		switch (tab.getPosition()) {
+			case 0:
+				fragment = new DateCalendarFragment();
+				break;
+			case 1:
+				fragment = new DateCalendarFragment();
+				break;
+			case 2:
+				fragment = new DateConverterFragment();
+				break;
+		}
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.container, fragment).commit();
 	}
 
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-
+		// TODO Auto-generated method stub
 	}
 }

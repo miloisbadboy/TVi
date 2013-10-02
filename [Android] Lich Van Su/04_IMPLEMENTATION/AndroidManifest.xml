@@ -8,7 +8,7 @@
 
 	<uses-sdk
 		android:minSdkVersion="11"
-		android:targetSdkVersion="17" />
+		android:targetSdkVersion="18" />
 
 	<application
 		android:allowBackup="true"
@@ -28,14 +28,6 @@
 
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
-		</activity>
-		<activity
-			android:name="com.example.lichvansu.datecalendar.XemNgayActivity"
-			android:label="@string/title_activity_xem_ngay"
-			android:parentActivityName="com.example.lichvansu.main.MainActivity" >
-			<meta-data
-				android:name="android.support.PARENT_ACTIVITY"
-				android:value="com.example.lichvansu.MainActivity" />
 		</activity>
 	</application>
 

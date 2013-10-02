@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="10dp"
+	tools:context=".DateConverterFragment" >
+
+	<TextView
+		android:id="@+id/txt_solar"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_centerInParent="true"
+		android:text="Dương Lịch"
+		android:textSize="22dp" />
+
+	<NumberPicker
+		android:id="@+id/numpckr_date"
+		android:layout_width="95dp"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/txt_solar"
+		android:layout_marginTop="5dp" />
+
+	<NumberPicker
+		android:id="@+id/numpckr_month"
+		android:layout_width="95dp"
+		android:layout_height="wrap_content"
+		android:layout_alignTop="@+id/numpckr_date"
+		android:layout_toRightOf="@+id/numpckr_date" />
+
+	<NumberPicker
+		android:id="@+id/numpckr_year"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_alignTop="@+id/numpckr_month"
+		android:layout_toRightOf="@+id/numpckr_month" />
+
+	<TextView
+		android:id="@+id/txt_lunar"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/numpckr_date"
+		android:layout_centerInParent="true"
+		android:layout_marginTop="15dp"
+		android:text="Âm Lịch"
+		android:textSize="22dp" />
+
+	<NumberPicker
+		android:id="@+id/numpckr_date_lunar"
+		android:layout_width="95dp"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/txt_lunar"
+		android:layout_marginTop="5dp" />
+
+	<NumberPicker
+		android:id="@+id/numpckr_month_lunar"
+		android:layout_width="95dp"
+		android:layout_height="wrap_content"
+		android:layout_alignTop="@+id/numpckr_date_lunar"
+		android:layout_toRightOf="@+id/numpckr_date_lunar" />
+
+	<NumberPicker
+		android:id="@+id/numpckr_year_lunar"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:layout_alignTop="@+id/numpckr_month_lunar"
+		android:layout_toRightOf="@+id/numpckr_month_lunar" />
+
+</RelativeLayout>

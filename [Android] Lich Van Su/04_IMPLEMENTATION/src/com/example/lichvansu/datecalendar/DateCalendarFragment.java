@@ -11,8 +11,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.FrameLayout;
 
 import com.example.lichvansu.R;
 
@@ -85,7 +83,11 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 
 	private void nextMonth() {
 		// Change current state
+		int oldMonth = currentDate.getMonth();
 		currentDate.setMonth(currentDate.getMonth() + 1);
+		while (Math.abs(currentDate.getMonth() - oldMonth) != 1) {
+			currentDate.setTime(currentDate.getTime() - 86400000);
+		}
 
 		// Do the fragment transaction
 		getChildFragmentManager()
@@ -98,7 +100,11 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 
 	private void prevMonth() {
 		// Change current state
+		int oldMonth = currentDate.getMonth();
 		currentDate.setMonth(currentDate.getMonth() - 1);
+		while (Math.abs(currentDate.getMonth() - oldMonth) != 1) {
+			currentDate.setTime(currentDate.getTime() - 86400000);
+		}
 
 		// Do the fragment transaction
 		getChildFragmentManager()
