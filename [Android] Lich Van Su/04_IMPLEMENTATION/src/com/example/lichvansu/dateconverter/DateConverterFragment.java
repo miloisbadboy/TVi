@@ -54,7 +54,7 @@ public class DateConverterFragment extends Fragment implements
 		numberPickerYear.setMinValue(1900);
 		numberPickerYear.setMaxValue(2200);
 		numberPickerYear.setValue(currentDate.get(Calendar.YEAR));
-		numberPickerMonth.setOnValueChangedListener(this);
+		numberPickerYear.setOnValueChangedListener(this);
 
 		numberPickerDateLunar = (NumberPicker) view
 				.findViewById(R.id.numpckr_date_lunar);
@@ -85,7 +85,7 @@ public class DateConverterFragment extends Fragment implements
 
 		if (picker.equals(numberPickerYear)) {
 			if (numberPickerMonth.getValue() == 2) {
-				if (DateHelper.isLeapYear(newVal)) {
+				if (DateHelper.isSolarLeapYear(newVal)) {
 					numberPickerDate.setMaxValue(29);
 				} else {
 					numberPickerDate.setMaxValue(28);
@@ -111,7 +111,7 @@ public class DateConverterFragment extends Fragment implements
 					numberPickerDate.setMaxValue(30);
 					break;
 				case 2:
-					if (DateHelper.isLeapYear(numberPickerYear.getValue())) {
+					if (DateHelper.isSolarLeapYear(numberPickerYear.getValue())) {
 						numberPickerDate.setMaxValue(29);
 					} else {
 						numberPickerDate.setMaxValue(28);
@@ -136,56 +136,23 @@ public class DateConverterFragment extends Fragment implements
 	}
 
 	private void convertSolarToLunar() {
-		AsyncTask<String, Void, HashMap<String, String[]>> task = new DataFetchingOperation();
-		task.execute("http://api.tamlinh.vn/lichVanSu/doiNgay/duongSangAm/ngay/"
-				+ numberPickerDate.getValue()
-				+ "/thang/"
-				+ numberPickerMonth.getValue()
-				+ "/nam/"
-				+ numberPickerYear.getValue() + "/key/tvi1102");
+		int[] result = DateHelper.convertSolar2Lunar(
+				numberPickerDate.getValue(), numberPickerMonth.getValue(),
+				numberPickerYear.getValue(), 7.00);
 
-		try {
-			HashMap<String, String[]> result = task.get();
-
-			numberPickerDateLunar.setValue(Integer.parseInt(result
-					.get("ngayam")[2]));
-			numberPickerMonthLunar.setValue(Integer.parseInt(result
-					.get("thangam")[2]));
-			numberPickerYearLunar
-					.setValue(Integer.parseInt(result.get("namam")[2]));
-
-		} catch (Exception e) {
-			new AlertDialog.Builder(getActivity())
-					.setTitle(e.getClass().toString())
-					.setMessage(e.getMessage()).setPositiveButton("OK", null)
-					.show();
-		}
+		numberPickerDateLunar.setValue(result[0]);
+		numberPickerMonthLunar.setValue(result[1]);
+		numberPickerYearLunar.setValue(result[2]);
 	}
 
 	private void convertLunarToSolar() {
-		AsyncTask<String, Void, HashMap<String, String[]>> task = new DataFetchingOperation();
-		task.execute("http://api.tamlinh.vn/lichVanSu/doiNgay/amSangDuong/ngay/"
-				+ numberPickerDateLunar.getValue()
-				+ "/thang/"
-				+ numberPickerMonthLunar.getValue()
-				+ "/nam/"
-				+ numberPickerYearLunar.getValue() + "/key/tvi1102");
+		int[] result = DateHelper.convertLunar2Solar(
+				numberPickerDateLunar.getValue(),
+				numberPickerMonthLunar.getValue(),
+				numberPickerYearLunar.getValue(), 0, 7.00);
 
-		try {
-			HashMap<String, String[]> result = task.get();
-
-			numberPickerDate
-					.setValue(Integer.parseInt(result.get("ngayduong")[2]));
-			numberPickerMonth.setValue(Integer.parseInt(result
-					.get("thangduong")[2]));
-			numberPickerYear
-					.setValue(Integer.parseInt(result.get("namduong")[2]));
-
-		} catch (Exception e) {
-			new AlertDialog.Builder(getActivity())
-					.setTitle(e.getClass().toString())
-					.setMessage(e.getMessage()).setPositiveButton("OK", null)
-					.show();
-		}
+		numberPickerDate.setValue(result[0]);
+		numberPickerMonth.setValue(result[1]);
+		numberPickerYear.setValue(result[2]);
 	}
 }
