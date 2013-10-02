@@ -30,7 +30,7 @@
 			</intent-filter>
 		</activity>
 		<activity
-			android:name="com.example.lichvansu.xemngay.XemNgayActivity"
+			android:name="com.example.lichvansu.datecalendar.XemNgayActivity"
 			android:label="@string/title_activity_xem_ngay"
 			android:parentActivityName="com.example.lichvansu.main.MainActivity" >
 			<meta-data
