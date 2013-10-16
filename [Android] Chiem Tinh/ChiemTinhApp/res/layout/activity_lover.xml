@@ -2,15 +2,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/background"
     tools:context=".LoverActivity" >
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/rsz_cupid" />
+
+    <TableLayout
+        android:id="@+id/table"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_toRightOf="@+id/imageView1"
+        android:background="@drawable/cell_shape" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/user_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/empty"
+                android:textColor="@android:color/white" />
+
+            <ImageView
+                android:id="@+id/lover_heart_icon"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginTop="30dp"
+                android:alpha="0"
+                android:src="@drawable/heart_icon" />
+
+            <ImageView
+                android:id="@+id/lover_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/empty"
+                android:textColor="@android:color/white" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/user_profile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:text="LoverProfile"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/lover_profile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:gravity="center"
+                android:text="LoverProfile"
+                android:textColor="@android:color/white" />
+        </TableRow>
+    </TableLayout>
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.chiemtinhapp.fragment.HoroscopePickerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btn_friend_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment"
+        android:background="@color/com_facebook_blue"
+        android:onClick="btn_friend_picker_onClick"
+        android:text="Pick your friend"
+        android:textColor="@android:color/white" />
+
+    <FrameLayout
+        android:id="@+id/picker_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true" >
+    </FrameLayout>
 
 </RelativeLayout>

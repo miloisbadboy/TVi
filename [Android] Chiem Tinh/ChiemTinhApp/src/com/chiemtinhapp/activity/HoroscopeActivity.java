@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -13,31 +12,30 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 
-import com.chiemtinhapp.DataFetchingOperation;
+import com.chiemtinhapp.HoroscopeDataFetchingOperation;
 import com.chiemtinhapp.R;
 import com.chiemtinhapp.application.ChiemTinhApplication;
+import com.chiemtinhapp.database.HoroscopeDataSource;
 import com.chiemtinhapp.fragment.HoroscopeResultFragment;
 
 public class HoroscopeActivity extends FragmentActivity {
 
-	private ArrayList<String[]> resultData;
 	private ResultCollectionPagerAdapter adapter;
-	private ViewPager viewPager;
+	private ViewPager viewPager;	
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == 0 && resultCode == RESULT_OK) {
 
-			AsyncTask<String, Void, ArrayList<String[]>> task = new DataFetchingOperation();
-			task.execute(buildUri(data.getStringExtra(PickerActivity.HOROSCOPE_NUMBER)));
+			HoroscopeDataFetchingOperation task = new HoroscopeDataFetchingOperation();
+			task.setResultDataSource(new HoroscopeDataSource(this));
+			int id = Integer.parseInt(data.getStringExtra(PickerActivity.HOROSCOPE_NUMBER));
+			task.execute(id);
 
 			try {
-
-				resultData = task.get();
-
-				// Set up swipe view
-				resultData.subList(0, 3).clear();
+				ArrayList<String[]> resultData = task.get();
 
 				setUpSwipeView(resultData);
 
@@ -48,6 +46,9 @@ public class HoroscopeActivity extends FragmentActivity {
 				new AlertDialog.Builder(this).setTitle(e.getClass().toString())
 				.setMessage(e.getMessage()).show();
 			}
+		}
+		else if (((ChiemTinhApplication) getApplication()).getHoroscopeData().size() == 0){
+			finish();
 		}
 	}
 	private class ResultCollectionPagerAdapter extends FragmentStatePagerAdapter {
@@ -60,11 +61,18 @@ public class HoroscopeActivity extends FragmentActivity {
 		@Override
 		public Fragment getItem(int i) {
 			// TODO Auto-generated method stub
-			String strResult = "<p><b>" + data.get(i)[0] + ":</b>  "
-					+ data.get(i)[1] + "</p>";
+			
+			// Skip the first 3 fields (Id, Title, Birthday)
+			i += 3;
+			
+			String strResult = data.get(i)[1];
 			Fragment fragment = new HoroscopeResultFragment();
 			Bundle args = new Bundle();
+			
+			args.putInt(HoroscopeResultFragment.INDEX, i - 3);
+			args.putInt(HoroscopeResultFragment.HORO_NUMBER, (Integer.parseInt(data.get(0)[1])));
 			args.putString(HoroscopeResultFragment.RESULT, strResult);
+			
 			fragment.setArguments(args);
 			return fragment;
 		}
@@ -72,12 +80,14 @@ public class HoroscopeActivity extends FragmentActivity {
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return data.size();
+			
+			// Skip 3 first field
+			return data.size() - 3;
 		}
 
 		@Override
 		public String getPageTitle(int i) {
-			return data.get(i)[0];
+			return data.get(i + 3)[0];
 		}
 	}
 	@Override
@@ -85,6 +95,7 @@ public class HoroscopeActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_horoscope);
 
+		// Restore saved data
 		ArrayList<String[]> data = ((ChiemTinhApplication) getApplication()).getHoroscopeData();
 
 		if (data.size() == 0){
@@ -106,18 +117,16 @@ public class HoroscopeActivity extends FragmentActivity {
 	}
 
 	private void setUpSwipeView(ArrayList<String[]> data) {
+		((TextView) findViewById(R.id.horoscope_title)).setText(data.get(1)[1]);
 		adapter = new ResultCollectionPagerAdapter(getSupportFragmentManager(), data);
 		viewPager = (ViewPager) findViewById(R.id.pager);
 		viewPager.setAdapter(adapter);
+		
 	}
 
 	private void startPickerActivity() {
 		Intent intent = new Intent(this, PickerActivity.class);
 		startActivityForResult(intent, 0);
-	}
-
-	private String buildUri(String number) {
-		return "http://api.tamlinh.vn/chiemTinh/tuViTheoCung/xem/ngaysinh/02/thangsinh/" + number + "/key/tvi1102";
 	}
 
 	@Override

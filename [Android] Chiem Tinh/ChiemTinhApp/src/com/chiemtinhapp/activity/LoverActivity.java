@@ -1,40 +1,43 @@
 package com.chiemtinhapp.activity;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.chiemtinhapp.PartnerDataFetchingOperation;
 import com.chiemtinhapp.R;
+import com.chiemtinhapp.application.ChiemTinhApplication;
+import com.chiemtinhapp.database.PartnerDataSource;
+import com.chiemtinhapp.helper.DateFormatHelper;
 
-public class LoverActivity extends Activity {
+public class LoverActivity extends PartnerActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_lover);
+		setContentView(R.layout.activity_lover);		
 		// Show the Up button in the action bar.
 		setupActionBar();
-	}
 
-	/**
-	 * Set up the {@link android.app.ActionBar}, if the API is available.
-	 */
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-	private void setupActionBar() {
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-			getActionBar().setDisplayHomeAsUpEnabled(true);
+		selectedUser = ((ChiemTinhApplication) getApplication()).getSelectedUser();
+		if (selectedUser == null) {
+			startProfileActivity();
 		}
-	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.lover, menu);
-		return true;
+		userProfile = (TextView) findViewById(R.id.user_profile);
+		partnerProfile = (TextView) findViewById(R.id.lover_profile);
+		userProfile.setText(DateFormatHelper.formatter.format(selectedUser.getBirthday()));
+
+		userImage = (ImageView) findViewById(R.id.user_image);
+		partnerImage = (ImageView) findViewById(R.id.lover_image);
+
+		setUpDefaultImage();
 	}
 
 	@Override
@@ -54,4 +57,66 @@ public class LoverActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	protected void startProfileActivity() {
+		Intent intent = new Intent(this, ProfileActivity.class);
+		startActivityForResult(intent, 0);
+	}
+
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+	protected void getResult() {
+		try {
+			partnerImage.animate().alpha(0).setDuration(2000).withEndAction(new Runnable() {
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					ImageView icon = ((ImageView) findViewById(R.id.lover_heart_icon));
+					icon.animate().scaleX(2).scaleY(2).alpha(1).setDuration(2000).withLayer();
+					partnerImage.setImageResource(R.drawable.aquarius_symbols);
+					partnerImage.animate().alpha(1).withEndAction(new Runnable() {
+						
+						@Override
+						public void run() {
+							// TODO Auto-generated method stub
+							int signId = getUserHoroscopeNumber(selectedUser);
+							int partnerId = getUserHoroscopeNumber(partner);
+							PartnerDataFetchingOperation task = new PartnerDataFetchingOperation();
+							task.setDataSource(new PartnerDataSource(LoverActivity.this));
+							task.execute(signId, partnerId, 1);
+							try {
+								String result = task.get();
+								startResultActivity(result);
+							}
+							catch (Exception e) {
+								new AlertDialog.Builder(LoverActivity.this).setTitle(e.getClass().toString()).setMessage(e.getMessage()).show();
+							}
+						}
+					});
+					if (selectFromFriends) {
+						partnerProfile.setText(DateFormatHelper.displayFormatter.format(partner.getBirthday()));
+					}
+					else {
+						partnerProfile.setText(horoNames[getUserHoroscopeNumber(partner) - 1]);
+					}
+				}
+			});
+		}
+		catch (NullPointerException ex) {
+			ex.printStackTrace();
+		}
+	}
+	
+	@Override
+	protected void startResultActivity(String result) {
+		// TODO Auto-generated method stub
+		Intent intent = new Intent(this, ResultActivity.class);
+		intent.putExtra(ResultActivity.RESULT, result);
+		startActivity(intent);
+	}
+
+	@Override
+	protected void onActivityResult(int arg0, int arg1, Intent arg2) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(arg0, arg1, arg2);
+		userProfile.setText(DateFormatHelper.formatter.format(selectedUser.getBirthday()));
+	}
 }

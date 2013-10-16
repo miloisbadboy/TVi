@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".partnerActivity" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/empty" />
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imageView1"
+        android:background="@drawable/cell_shape" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/user_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/empty" />
+
+            <ImageView
+                android:id="@+id/partner_image"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_column="2"
+                android:src="@drawable/empty" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/user_profile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:gravity="center"
+                android:text="partnerProfile"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/partner_profile"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:gravity="center"
+                android:text="partnerProfile"
+                android:textColor="@android:color/white" />
+        </TableRow>
+    </TableLayout>
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.chiemtinhapp.fragment.HoroscopePickerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btn_friend_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment"
+        android:background="@color/com_facebook_blue"
+        android:onClick="btn_friend_picker_onClick"
+        android:text="Pick your friend"
+        android:textColor="@android:color/white" />
+
+    <FrameLayout
+        android:id="@+id/picker_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true" >
+    </FrameLayout>
+
+</RelativeLayout>

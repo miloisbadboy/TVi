@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/horoscope1"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitCenter"
+            android:src="@drawable/zodiac_01"
+            android:tag="1" />
+
+        <ImageButton
+            android:id="@+id/horoscope2"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/zodiac_02"
+            android:tag="2" />
+
+        <ImageButton
+            android:id="@+id/horoscope3"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/zodiac_03"
+            android:tag="3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText1"
+            android:text="22/12 - 20/01"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText2"
+            android:text="21/01 - 19/02"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText3"
+            android:text="20/02 - 20/03"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="25"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/horoscope4"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/zodiac_04"
+            android:tag="4" />
+
+        <ImageButton
+            android:id="@+id/horoscope5"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/zodiac_05"
+            android:tag="5" />
+
+        <ImageButton
+            android:id="@+id/horoscope6"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/zodiac_06"
+            android:tag="6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText4"
+            android:text="21/03 - 20/04"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText5"
+            android:text="21/04 - 21/04"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText6"
+            android:text="22/05 - 21/06"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="25"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/horoscope7"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/zodiac_07"
+            android:tag="7" />
+
+        <ImageButton
+            android:id="@+id/horoscope8"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/zodiac_08"
+            android:tag="8" />
+
+        <ImageButton
+            android:id="@+id/horoscope9"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/zodiac_09"
+            android:tag="9" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText7"
+            android:text="22/06 - 22/07"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText8"
+            android:text="23/07 - 23/08"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText9"
+            android:text="24/08 - 23/09"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="25"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/horoscope10"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/zodiac_010"
+            android:tag="10" />
+
+        <ImageButton
+            android:id="@+id/horoscope11"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/zodiac_011"
+            android:tag="11" />
+
+        <ImageButton
+            android:id="@+id/horoscope12"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.33"
+            android:onClick="horoscope_onClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/zodiac_012"
+            android:tag="12" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText10"
+            android:text="24/09 - 23/10"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:gravity="center|center_horizontal"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText11"
+            android:text="24/10 - 22/11"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:tag="horoscopeText12"
+            android:text="23/11 - 21/12"
+            android:textColor="@android:color/white"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+</LinearLayout>

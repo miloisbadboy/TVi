@@ -4,16 +4,27 @@
     android:layout_height="match_parent"
     android:orientation="horizontal" >
 
-    <TextView
+    <CheckedTextView
         android:id="@+id/name"
         android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="50" />
+        android:layout_height="32dp"
+        android:layout_weight="80"
+        android:clickable="true"
+        android:checked="false"
+        android:onClick="user_profile_onClick"
+        android:drawableLeft="@drawable/new_checkmark" />
 
-    <TextView
-        android:id="@+id/birthday"
+    <ImageView
+        android:id="@+id/icon_gender"
+        android:layout_weight="10"
         android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="50" />
+        android:layout_height="30dp" />
+    
+    <ImageButton 
+        android:id="@+id/btn_delete_profile"
+        android:layout_weight="10"
+        android:layout_width="0dip"
+        android:layout_height="30dp"
+        android:onClick="btn_delete_onClick"/>
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.chiemtinhapp.model;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import com.chiemtinhapp.helper.Gender;
@@ -9,6 +10,10 @@ public class User {
 	private String name;
 	private Date birthday;
 	private Gender gender;
+	
+	public User() {
+		this(0, "", Calendar.getInstance().getTime(), Gender.Male);
+	}
 	public User(long id, String name, Date birthday, Gender gender) {
 		super();
 		this.id = id;
@@ -39,5 +44,10 @@ public class User {
 	}
 	public void setGender(Gender gender) {
 		this.gender = gender;
+	}
+	@Override
+	public boolean equals(Object o) {
+		// TODO Auto-generated method stub
+		return this.id == ((User) o).id;
 	}
 }

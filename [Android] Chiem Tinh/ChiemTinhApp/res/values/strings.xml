@@ -10,5 +10,10 @@
     <string name="biology_graph">Nhịp sinh học</string>
     <string name="profile_management">Quản lí tài khoản</string>
     <string name="title_activity_lover">LoverActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_result">Result</string>
+    <string name="app_id">715464668467303</string>
+    <string name="title_activity_business">BusinessActivity</string>
+    <string name="title_activity_biology">BiologyActivity</string>
 
 </resources>
