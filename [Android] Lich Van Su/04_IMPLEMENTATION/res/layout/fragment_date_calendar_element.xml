@@ -2,18 +2,30 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@drawable/border"
+	android:background="@color/white"
 	tools:context=".DateCalendarElementFragment" >
+
+	<ImageView
+		android:id="@+id/img_background"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentTop="true"
+		android:layout_marginTop="-18dp"
+		android:src="@drawable/bg_main" />
 
 	<TextView
 		android:id="@+id/txt_title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="5dp"
+		android:layout_marginTop="7dp"
+		android:fontFamily="Arial"
 		android:gravity="center"
 		android:text="Tháng 9 Năm 2013"
 		android:textAlignment="center"
-		android:textSize="22dp" />
+		android:textColor="@color/blue"
+		android:textSize="26dp"
+		android:textStyle="bold" />
 
 	<TextView
 		android:id="@+id/txt_big_date"
@@ -21,10 +33,12 @@
 		android:layout_height="wrap_content"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="-18dp"
-		android:text="27"
-		android:textColor="#002D80"
-		android:textSize="190dp" />
+		android:layout_marginTop="18dp"
+		android:fontFamily="Arial"
+		android:text="10"
+		android:textColor="@color/blue"
+		android:textSize="174dp"
+		android:textStyle="bold" />
 
 	<TextView
 		android:id="@+id/txt_day_of_week"
@@ -35,18 +49,8 @@
 		android:layout_marginTop="162dp"
 		android:gravity="center"
 		android:text="Thứ 6"
+		android:textColor="@color/blue"
 		android:textSize="26dp"
 		android:textStyle="bold" />
-
-	<TextView
-		android:id="@+id/txt_info"
-		android:layout_width="fill_parent"
-		android:layout_height="60dp"
-		android:layout_below="@+id/txt_day_of_week"
-		android:gravity="center"
-		android:paddingLeft="5dp"
-		android:paddingRight="5dp"
-		android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius massa orci, eu euismod mauris tincidunt adipiscing."
-		android:textSize="14dp" />
 
 </RelativeLayout>

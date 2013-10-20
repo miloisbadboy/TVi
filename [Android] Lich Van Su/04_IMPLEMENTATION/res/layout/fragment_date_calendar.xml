@@ -8,14 +8,7 @@
 		android:id="@+id/element_container"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content" >
-	</FrameLayout>
 
-	<View
-		android:id="@+id/view1"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true"
-		android:layout_below="@+id/element_container"
-		android:background="#000000" />
+	</FrameLayout>
 
 </RelativeLayout>
