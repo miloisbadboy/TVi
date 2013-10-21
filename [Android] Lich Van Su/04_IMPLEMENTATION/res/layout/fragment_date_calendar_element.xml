@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:magictext="http://schemas.android.com/apk/res/com.example.lichvansu"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -11,8 +12,8 @@
 		android:layout_height="wrap_content"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentTop="true"
-		android:layout_marginTop="-18dp"
-		android:src="@drawable/bg_main" />
+		android:layout_marginTop="8dp"
+		android:src="@drawable/dragon" />
 
 	<TextView
 		android:id="@+id/txt_title"
@@ -27,30 +28,60 @@
 		android:textSize="26dp"
 		android:textStyle="bold" />
 
-	<TextView
+	<com.example.lichvansu.MagicTextView
 		android:id="@+id/txt_big_date"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="18dp"
+		android:layout_marginTop="24dp"
 		android:fontFamily="Arial"
 		android:text="10"
 		android:textColor="@color/blue"
 		android:textSize="174dp"
-		android:textStyle="bold" />
+		android:textStyle="bold"
+		magictext:outerShadowColor="@color/black"
+		magictext:outerShadowDx="3"
+		magictext:outerShadowDy="3"
+		magictext:outerShadowRadius="7"
+		magictext:strokeColor="@color/white"
+		magictext:strokeJoinStyle="round"
+		magictext:strokeWidth="4" />
 
 	<TextView
-		android:id="@+id/txt_day_of_week"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
+		android:id="@+id/txt_date_status"
+		android:layout_width="wrap_content"
+		android:layout_height="30dp"
+		android:layout_alignParentBottom="true"
 		android:layout_alignParentLeft="true"
-		android:layout_below="@+id/txt_title"
-		android:layout_marginTop="162dp"
-		android:gravity="center"
-		android:text="Thứ 6"
+		android:layout_marginBottom="20dp"
+		android:layout_marginLeft="10dp"
+		android:drawablePadding="3dp"
+		android:drawableStart="@drawable/red_star"
+		android:fontFamily="Arial"
+		android:gravity="center_vertical"
+		android:text="Hoàng đạo"
+		android:textAllCaps="true"
+		android:textColor="@color/red"
+		android:textSize="18dp"
+		android:textStyle="bold" />
+
+	<Button
+		android:id="@+id/txt_info"
+		android:layout_width="wrap_content"
+		android:layout_height="30dp"
+		android:layout_alignParentRight="true"
+		android:layout_alignTop="@+id/txt_date_status"
+		android:layout_marginRight="10dp"
+		android:background="@color/transparent"
+		android:drawablePadding="5dp"
+		android:drawableRight="@drawable/info"
+		android:fontFamily="Arial"
+		android:gravity="center_vertical"
+		android:text="Chi tiết"
+		android:textAllCaps="true"
 		android:textColor="@color/blue"
-		android:textSize="26dp"
+		android:textSize="18dp"
 		android:textStyle="bold" />
 
 </RelativeLayout>

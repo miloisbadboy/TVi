@@ -17,7 +17,7 @@ import com.example.lichvansu.R;
 @SuppressWarnings("deprecation")
 public class DateCalendarFragment extends Fragment implements OnClickListener {
 
-	private static final int SWIPE_MIN_DISTANCE = 20;
+	private static final int SWIPE_MIN_DISTANCE = 10;
 	private GestureDetector gestureDetector;
 	private View.OnTouchListener gestureListener;
 	private Calendar currentDate;

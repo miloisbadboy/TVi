@@ -31,35 +31,35 @@ public class DateCalendarElementFragment extends Fragment {
 		TextView txtTitle = (TextView) view.findViewById(R.id.txt_title);
 		txtTitle.setText("Tháng " + month + " năm " + year);
 		
-		TextView txtDayOfWeek = (TextView) view.findViewById(R.id.txt_day_of_week);
-		String strDayOfWeek = "";
-		switch (dayOfWeek) {
-			case 7:
-				strDayOfWeek = "Chủ nhật";
-				txtBigDate.setTextColor(Color.RED);
-				txtTitle.setTextColor(Color.RED);
-				txtDayOfWeek.setTextColor(Color.RED);
-				break;
-			case 1:
-				strDayOfWeek = "Thứ hai";
-				break;
-			case 2:
-				strDayOfWeek = "Thứ ba";
-				break;
-			case 3:
-				strDayOfWeek = "Thứ tư";
-				break;
-			case 4:
-				strDayOfWeek = "Thứ năm";
-				break;
-			case 5:
-				strDayOfWeek = "Thứ sáu";
-				break;
-			case 6:
-				strDayOfWeek = "Thứ bảy";
-				break;
-		}
-		txtDayOfWeek.setText(strDayOfWeek);
+//		TextView txtDayOfWeek = (TextView) view.findViewById(R.id.txt_day_of_week);
+//		String strDayOfWeek = "";
+//		switch (dayOfWeek) {
+//			case 7:
+//				strDayOfWeek = "Chủ nhật";
+//				txtBigDate.setTextColor(Color.RED);
+//				txtTitle.setTextColor(Color.RED);
+//				txtDayOfWeek.setTextColor(Color.RED);
+//				break;
+//			case 1:
+//				strDayOfWeek = "Thứ hai";
+//				break;
+//			case 2:
+//				strDayOfWeek = "Thứ ba";
+//				break;
+//			case 3:
+//				strDayOfWeek = "Thứ tư";
+//				break;
+//			case 4:
+//				strDayOfWeek = "Thứ năm";
+//				break;
+//			case 5:
+//				strDayOfWeek = "Thứ sáu";
+//				break;
+//			case 6:
+//				strDayOfWeek = "Thứ bảy";
+//				break;
+//		}
+//		txtDayOfWeek.setText(strDayOfWeek);
 		
 		return view;
 	}
