@@ -1,0 +1,193 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".DateCalendarDetailElement" >
+
+	<View
+		android:id="@+id/panel_details"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentTop="true"
+		android:layout_marginBottom="7dp"
+		android:layout_marginLeft="5dp"
+		android:layout_marginRight="5dp"
+		android:layout_marginTop="15dp"
+		android:background="@drawable/rounded_rectangle_blue" />
+
+	<TextView
+		android:id="@+id/txt_day_of_week"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_centerInParent="true"
+		android:background="@color/white"
+		android:fontFamily="Arial"
+		android:gravity="center"
+		android:minWidth="115dp"
+		android:paddingLeft="5dp"
+		android:paddingRight="5dp"
+		android:text=""
+		android:textAllCaps="true"
+		android:textColor="@color/blue"
+		android:textSize="24sp"
+		android:textStyle="bold" />
+
+	<TableLayout
+		android:id="@+id/tbl_details"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignBottom="@+id/panel_details"
+		android:layout_alignLeft="@+id/panel_details"
+		android:layout_alignRight="@+id/panel_details"
+		android:layout_alignTop="@+id/panel_details"
+		android:layout_marginLeft="3dp"
+		android:layout_marginRight="3dp"
+		android:layout_marginTop="3dp"
+		android:stretchColumns="1" >
+
+		<TableRow
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp" >
+
+			<TextView
+				android:id="@+id/txt_heading_hour"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text="@string/hour"
+				android:textColor="@color/black"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/txt_heading_date"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text="@string/date"
+				android:textColor="@color/black"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/txt_heading_month"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text="@string/month"
+				android:textColor="@color/black"
+				android:textSize="18sp" />
+
+			<TextView
+				android:id="@+id/txt_heading_year"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text="@string/year"
+				android:textColor="@color/black"
+				android:textSize="18sp" />
+		</TableRow>
+
+		<TableRow
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp" >
+
+			<TextView
+				android:id="@+id/txt_lunar_hour"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text=""
+				android:textColor="@color/black"
+				android:textSize="26sp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:id="@+id/txt_lunar_date"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text=""
+				android:textColor="@color/black"
+				android:textSize="26sp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:id="@+id/txt_lunar_month"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text=""
+				android:textColor="@color/black"
+				android:textSize="26sp"
+				android:textStyle="bold" />
+
+			<TextView
+				android:id="@+id/txt_lunar_year"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text=""
+				android:textColor="@color/black"
+				android:textSize="26sp"
+				android:textStyle="bold" />
+		</TableRow>
+
+		<TableRow
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp" >
+
+			<TextView
+				android:id="@+id/txt_title_hour"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text=""
+				android:textColor="@color/black"
+				android:textSize="14sp" />
+
+			<TextView
+				android:id="@+id/txt_title_date"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text=""
+				android:textColor="@color/black"
+				android:textSize="14sp" />
+
+			<TextView
+				android:id="@+id/txt_title_month"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text=""
+				android:textColor="@color/black"
+				android:textSize="14sp" />
+
+			<TextView
+				android:id="@+id/txt_title_year"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:gravity="center_horizontal"
+				android:text=""
+				android:textColor="@color/black"
+				android:textSize="14sp" />
+		</TableRow>
+	</TableLayout>
+
+</RelativeLayout>

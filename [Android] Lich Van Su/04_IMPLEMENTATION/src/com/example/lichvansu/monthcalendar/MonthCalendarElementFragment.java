@@ -14,7 +14,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.example.lichvansu.R;
-import com.example.lichvansu.helper.DateHelper;
+import com.example.lichvansu.helper.MyDateHelper;
 
 public class MonthCalendarElementFragment extends Fragment {
 
@@ -109,13 +109,13 @@ public class MonthCalendarElementFragment extends Fragment {
 							.findViewById(R.id.txt_date);
 					txtDate.setText(date.get(Calendar.DATE) + "");
 
-					int lunarDate = DateHelper.convertSolar2Lunar(
-							date.get(Calendar.DATE), date.get(Calendar.MONTH),
-							date.get(Calendar.YEAR), 7.00)[0];
-
-					TextView txtDateLunar = (TextView) gridView
-							.findViewById(R.id.txt_date_lunar);
-					txtDateLunar.setText(lunarDate + "");
+//					int lunarDate = DateHelper.convertSolar2Lunar(
+//							date.get(Calendar.DATE), date.get(Calendar.MONTH),
+//							date.get(Calendar.YEAR), 7.00)[0];
+//
+//					TextView txtDateLunar = (TextView) gridView
+//							.findViewById(R.id.txt_date_lunar);
+//					txtDateLunar.setText(lunarDate + "");
 				}
 
 			} else {

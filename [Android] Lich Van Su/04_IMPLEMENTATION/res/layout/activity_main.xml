@@ -7,7 +7,7 @@
 	<LinearLayout
 		android:id="@+id/tab_bar"
 		android:layout_width="fill_parent"
-		android:layout_height="44dp"
+		android:layout_height="48dp"
 		android:background="@drawable/bg_tabs"
 		android:orientation="horizontal"
 		android:tileMode="repeat" >
@@ -15,7 +15,7 @@
 		<Button
 			android:id="@+id/btn_tab_date_calendar"
 			android:layout_width="90dp"
-			android:layout_height="44dp"
+			android:layout_height="fill_parent"
 			android:background="@color/dark_red"
 			android:drawableLeft="@drawable/icon_dc"
 			android:fontFamily="Arial"
@@ -28,13 +28,14 @@
 		<ImageView
 			android:id="@+id/seperator1"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:layout_height="48dp"
+			android:scaleType="fitXY"
 			android:src="@drawable/seperator" />
 
 		<Button
 			android:id="@+id/btn_tab_month_calendar"
 			android:layout_width="90dp"
-			android:layout_height="44dp"
+			android:layout_height="fill_parent"
 			android:background="@color/transparent"
 			android:drawableLeft="@drawable/icon_mc"
 			android:fontFamily="Arial"
@@ -47,13 +48,14 @@
 		<ImageView
 			android:id="@+id/seperator2"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:layout_height="48dp"
+			android:scaleType="fitXY"
 			android:src="@drawable/seperator" />
 
 		<Button
 			android:id="@+id/btn_tab_date_converter"
 			android:layout_width="90dp"
-			android:layout_height="44dp"
+			android:layout_height="fill_parent"
 			android:background="@color/transparent"
 			android:drawableLeft="@drawable/icon_dn"
 			android:fontFamily="Arial"
@@ -66,13 +68,14 @@
 		<ImageView
 			android:id="@+id/seperator2"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:layout_height="48dp"
+			android:scaleType="fitXY"
 			android:src="@drawable/seperator" />
 
 		<Button
 			android:id="@+id/btn_tab_more"
 			android:layout_width="fill_parent"
-			android:layout_height="44dp"
+			android:layout_height="fill_parent"
 			android:background="@color/transparent"
 			android:drawableLeft="@drawable/icon_more"
 			android:paddingLeft="8dp"

@@ -1,12 +1,7 @@
 package com.example.lichvansu.dateconverter;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
 
-import android.app.AlertDialog;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,14 +10,11 @@ import android.view.ViewGroup;
 import android.widget.NumberPicker;
 
 import com.example.lichvansu.R;
-import com.example.lichvansu.helper.DataFetchingOperation;
-import com.example.lichvansu.helper.DateHelper;
+import com.example.lichvansu.helper.MyDateHelper;
 
 public class DateConverterFragment extends Fragment implements
 		NumberPicker.OnValueChangeListener {
-	NumberPicker numberPickerDate, numberPickerMonth, numberPickerYear,
-			numberPickerDateLunar, numberPickerMonthLunar,
-			numberPickerYearLunar;
+	NumberPicker numberPickerDate, numberPickerMonth, numberPickerYear;
 
 	public DateConverterFragment() {
 		// Required empty public constructor
@@ -37,42 +29,28 @@ public class DateConverterFragment extends Fragment implements
 
 		Calendar currentDate = Calendar.getInstance();
 
-		numberPickerDate = (NumberPicker) view.findViewById(R.id.numpckr_date);
+		numberPickerDate = (NumberPicker) view.findViewById(R.id.numpicker_date);
 		numberPickerDate.setMinValue(1);
 		numberPickerDate.setMaxValue(31);
 		numberPickerDate.setValue(currentDate.get(Calendar.DATE));
+		numberPickerDate.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 		numberPickerDate.setOnValueChangedListener(this);
 
 		numberPickerMonth = (NumberPicker) view
-				.findViewById(R.id.numpckr_month);
+				.findViewById(R.id.numpicker_month);
 		numberPickerMonth.setMinValue(1);
 		numberPickerMonth.setMaxValue(12);
 		numberPickerMonth.setValue(currentDate.get(Calendar.MONTH) + 1);
+		numberPickerMonth.setDisplayedValues(new String[] {"Một", "Hai", "Ba", "Bốn", "Năm", "Sáu", "Bảy", "Tám", "Chín", "Mười", "Mười một", "Mười hai"});
+//		numberPickerMonth.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 		numberPickerMonth.setOnValueChangedListener(this);
 
-		numberPickerYear = (NumberPicker) view.findViewById(R.id.numpckr_year);
-		numberPickerYear.setMinValue(1900);
+		numberPickerYear = (NumberPicker) view.findViewById(R.id.numpicker_year);
+		numberPickerYear.setMinValue(1800);
 		numberPickerYear.setMaxValue(2200);
 		numberPickerYear.setValue(currentDate.get(Calendar.YEAR));
+		numberPickerYear.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 		numberPickerYear.setOnValueChangedListener(this);
-
-		numberPickerDateLunar = (NumberPicker) view
-				.findViewById(R.id.numpckr_date_lunar);
-		numberPickerDateLunar.setMinValue(1);
-		numberPickerDateLunar.setMaxValue(30);
-		numberPickerDateLunar.setOnValueChangedListener(this);
-
-		numberPickerMonthLunar = (NumberPicker) view
-				.findViewById(R.id.numpckr_month_lunar);
-		numberPickerMonthLunar.setMinValue(1);
-		numberPickerMonthLunar.setMaxValue(12);
-		numberPickerMonthLunar.setOnValueChangedListener(this);
-
-		numberPickerYearLunar = (NumberPicker) view
-				.findViewById(R.id.numpckr_year_lunar);
-		numberPickerYearLunar.setMinValue(1990);
-		numberPickerYearLunar.setMaxValue(2200);
-		numberPickerYearLunar.setOnValueChangedListener(this);
 
 		convertSolarToLunar();
 
@@ -85,7 +63,7 @@ public class DateConverterFragment extends Fragment implements
 
 		if (picker.equals(numberPickerYear)) {
 			if (numberPickerMonth.getValue() == 2) {
-				if (DateHelper.isSolarLeapYear(newVal)) {
+				if (MyDateHelper.isSolarLeapYear(newVal)) {
 					numberPickerDate.setMaxValue(29);
 				} else {
 					numberPickerDate.setMaxValue(28);
@@ -111,7 +89,7 @@ public class DateConverterFragment extends Fragment implements
 					numberPickerDate.setMaxValue(30);
 					break;
 				case 2:
-					if (DateHelper.isSolarLeapYear(numberPickerYear.getValue())) {
+					if (MyDateHelper.isSolarLeapYear(numberPickerYear.getValue())) {
 						numberPickerDate.setMaxValue(29);
 					} else {
 						numberPickerDate.setMaxValue(28);
@@ -136,23 +114,23 @@ public class DateConverterFragment extends Fragment implements
 	}
 
 	private void convertSolarToLunar() {
-		int[] result = DateHelper.convertSolar2Lunar(
-				numberPickerDate.getValue(), numberPickerMonth.getValue(),
-				numberPickerYear.getValue(), 7.00);
-
-		numberPickerDateLunar.setValue(result[0]);
-		numberPickerMonthLunar.setValue(result[1]);
-		numberPickerYearLunar.setValue(result[2]);
+//		int[] result = MyDateHelper.convertSolar2Lunar(
+//				numberPickerDate.getValue(), numberPickerMonth.getValue(),
+//				numberPickerYear.getValue(), 7.00);
+//
+//		numberPickerDateLunar.setValue(result[0]);
+//		numberPickerMonthLunar.setValue(result[1]);
+//		numberPickerYearLunar.setValue(result[2]);
 	}
 
 	private void convertLunarToSolar() {
-		int[] result = DateHelper.convertLunar2Solar(
-				numberPickerDateLunar.getValue(),
-				numberPickerMonthLunar.getValue(),
-				numberPickerYearLunar.getValue(), 0, 7.00);
-
-		numberPickerDate.setValue(result[0]);
-		numberPickerMonth.setValue(result[1]);
-		numberPickerYear.setValue(result[2]);
+//		int[] result = MyDateHelper.convertLunar2Solar(
+//				numberPickerDateLunar.getValue(),
+//				numberPickerMonthLunar.getValue(),
+//				numberPickerYearLunar.getValue(), 0, 7.00);
+//
+//		numberPickerDate.setValue(result[0]);
+//		numberPickerMonth.setValue(result[1]);
+//		numberPickerYear.setValue(result[2]);
 	}
 }

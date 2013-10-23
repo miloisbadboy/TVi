@@ -1,4 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/com/example/lichvansu/MainActivity.java=UTF-8
-encoding//src/com/example/lichvansu/datecalendar/DateCalendarElementFragment.java=UTF-8
+encoding//src/com/example/lichvansu/datecalendar/DateCalendarDetailElement.java=UTF-8
+encoding//src/com/example/lichvansu/datecalendar/DateCalendarMainElement.java=UTF-8
+encoding//src/com/example/lichvansu/dateconverter/DateConverterFragment.java=UTF-8
+encoding//src/com/example/lichvansu/helper/MyDateHelper.java=UTF-8
 encoding//src/com/example/lichvansu/monthcalendar/MonthCalendarElementFragment.java=UTF-8

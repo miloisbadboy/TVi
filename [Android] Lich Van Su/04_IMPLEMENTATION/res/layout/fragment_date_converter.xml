@@ -2,72 +2,115 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:paddingLeft="10dp"
-	android:paddingRight="10dp"
-	android:paddingTop="5dp"
+	android:background="@color/white"
+	android:padding="10dp"
+	android:paddingBottom="0dp"
 	tools:context=".DateConverterFragment" >
+
+	<TextView
+		android:id="@+id/txt_picker_date"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_alignParentTop="true"
+		android:layout_marginTop="5dp"
+		android:gravity="center_horizontal"
+		android:text="@string/date"
+		android:textColor="@color/blue"
+		android:textSize="18sp"
+		android:textStyle="bold" />
+
+	<TextView
+		android:id="@+id/txt_picker_month"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignBottom="@+id/txt_picker_date"
+		android:layout_alignTop="@+id/txt_picker_date"
+		android:layout_toLeftOf="@+id/txt_picker_year"
+		android:layout_toRightOf="@+id/txt_picker_date"
+		android:gravity="center_horizontal"
+		android:text="@string/month"
+		android:textColor="@color/blue"
+		android:textSize="18sp"
+		android:textStyle="bold" />
+
+	<TextView
+		android:id="@+id/txt_picker_year"
+		android:layout_width="80dp"
+		android:layout_height="wrap_content"
+		android:layout_alignBottom="@+id/txt_picker_date"
+		android:layout_alignParentRight="true"
+		android:layout_alignTop="@+id/txt_picker_date"
+		android:gravity="center_horizontal"
+		android:text="@string/year"
+		android:textColor="@color/blue"
+		android:textSize="18sp"
+		android:textStyle="bold" />
+
+	<NumberPicker
+		android:id="@+id/numpicker_date"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignLeft="@+id/txt_picker_date"
+		android:layout_alignRight="@+id/txt_picker_date"
+		android:layout_below="@+id/txt_picker_date"
+		android:layout_marginTop="5dp" />
+
+	<NumberPicker
+		android:id="@+id/numpicker_month"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignBottom="@+id/numpicker_date"
+		android:layout_alignLeft="@+id/txt_picker_month"
+		android:layout_alignRight="@+id/txt_picker_month" />
+
+	<NumberPicker
+		android:id="@+id/numpicker_year"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignBottom="@+id/numpicker_date"
+		android:layout_alignLeft="@+id/txt_picker_year"
+		android:layout_alignRight="@+id/txt_picker_year" />
+
+	<ImageView
+		android:id="@+id/icon"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/numpicker_month"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="30dp"
+		android:src="@drawable/icon_yinyang" />
 
 	<TextView
 		android:id="@+id/txt_solar"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_alignParentTop="true"
-		android:layout_centerInParent="true"
-		android:text="Dương Lịch"
-		android:textSize="22dp" />
-
-	<NumberPicker
-		android:id="@+id/numpckr_date"
-		android:layout_width="95dp"
-		android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true"
-		android:layout_below="@+id/txt_solar" />
-
-	<NumberPicker
-		android:id="@+id/numpckr_month"
-		android:layout_width="95dp"
-		android:layout_height="wrap_content"
-		android:layout_alignTop="@+id/numpckr_date"
-		android:layout_toRightOf="@+id/numpckr_date" />
-
-	<NumberPicker
-		android:id="@+id/numpckr_year"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentRight="true"
-		android:layout_alignTop="@+id/numpckr_month"
-		android:layout_toRightOf="@+id/numpckr_month" />
+		android:layout_alignBottom="@+id/icon"
+		android:layout_alignRight="@+id/numpicker_year"
+		android:layout_alignTop="@+id/icon"
+		android:layout_toRightOf="@+id/icon"
+		android:gravity="center"
+		android:padding="0dp"
+		android:text="Âm lịch"
+		android:textAllCaps="true"
+		android:textColor="@color/blue"
+		android:textSize="18sp"
+		android:textStyle="bold" />
 
 	<TextView
 		android:id="@+id/txt_lunar"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_below="@+id/numpckr_date"
-		android:layout_centerInParent="true"
-		android:layout_marginTop="10dp"
-		android:text="Âm Lịch"
-		android:textSize="22dp" />
-
-	<NumberPicker
-		android:id="@+id/numpckr_date_lunar"
-		android:layout_width="95dp"
-		android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true"
-		android:layout_below="@+id/txt_lunar" />
-
-	<NumberPicker
-		android:id="@+id/numpckr_month_lunar"
-		android:layout_width="95dp"
-		android:layout_height="wrap_content"
-		android:layout_alignTop="@+id/numpckr_date_lunar"
-		android:layout_toRightOf="@+id/numpckr_date_lunar" />
-
-	<NumberPicker
-		android:id="@+id/numpckr_year_lunar"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentRight="true"
-		android:layout_alignTop="@+id/numpckr_month_lunar"
-		android:layout_toRightOf="@+id/numpckr_month_lunar" />
+		android:layout_alignBottom="@+id/icon"
+		android:layout_alignLeft="@+id/numpicker_date"
+		android:layout_alignTop="@+id/icon"
+		android:layout_toLeftOf="@+id/icon"
+		android:gravity="center"
+		android:padding="0dp"
+		android:text="Dương lịch"
+		android:textAllCaps="true"
+		android:textColor="@color/red"
+		android:textSize="18sp"
+		android:textStyle="bold" />
 
 </RelativeLayout>
