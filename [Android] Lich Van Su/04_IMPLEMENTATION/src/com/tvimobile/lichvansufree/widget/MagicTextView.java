@@ -1,4 +1,4 @@
-package com.example.lichvansu;
+package com.tvimobile.lichvansufree.widget;
 
 import java.util.ArrayList;
 import java.util.WeakHashMap;
@@ -24,6 +24,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Pair;
 import android.widget.TextView;
+import com.tvimobile.lichvansufree.R;
 
 public class MagicTextView extends TextView {
 	private ArrayList<Shadow> outerShadows;

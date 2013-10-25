@@ -1,4 +1,4 @@
-package com.example.lichvansu;
+package com.tvimobile.lichvansufree;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
@@ -20,10 +20,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.lichvansu.R;
-import com.example.lichvansu.datecalendar.DateCalendarFragment;
-import com.example.lichvansu.dateconverter.DateConverterFragment;
-import com.example.lichvansu.monthcalendar.MonthCalendarFragment;
+import com.tvimobile.lichvansufree.R;
+import com.tvimobile.lichvansufree.datecalendar.DateCalendarFragment;
+import com.tvimobile.lichvansufree.dateconverter.DateConverterFragment;
+import com.tvimobile.lichvansufree.monthcalendar.MonthCalendarFragment;
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
 
@@ -69,7 +69,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 		// .setTabListener((TabListener) this));
 		// actionBar.addTab(actionBar.newTab().setText("Lịch Tháng")
 		// .setTabListener((TabListener) this));
-		// actionBar.addTab(actionBar.newTab().setText("Đổi Ngày")
+		// actionBar.addTab(actionBar.newTab().setText("�?ổi Ngày")
 		// .setTabListener((TabListener) this));
 		// actionBar.addTab(actionBar.newTab().setText("...")
 		// .setTabListener((TabListener) this));

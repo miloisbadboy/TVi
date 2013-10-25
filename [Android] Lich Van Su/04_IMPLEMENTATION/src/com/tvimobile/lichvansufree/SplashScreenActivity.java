@@ -1,7 +1,7 @@
-package com.example.lichvansu;
+package com.tvimobile.lichvansufree;
 
-import com.example.lichvansu.R;
-import com.example.lichvansu.R.layout;
+import com.tvimobile.lichvansufree.R;
+import com.tvimobile.lichvansufree.R.layout;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -1,5 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:magictext="http://schemas.android.com/apk/res/com.example.lichvansu"
+	xmlns:magictext="http://schemas.android.com/apk/res/com.tvimobile.lichvansufree"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -29,7 +29,7 @@
 		android:textSize="26sp"
 		android:textStyle="bold" />
 
-	<com.example.lichvansu.MagicTextView
+	<com.tvimobile.lichvansufree.widget.MagicTextView
 		android:id="@+id/txt_date"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"

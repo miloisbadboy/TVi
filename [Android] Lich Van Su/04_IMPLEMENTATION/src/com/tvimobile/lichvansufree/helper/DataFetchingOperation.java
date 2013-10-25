@@ -1,4 +1,4 @@
-package com.example.lichvansu.helper;
+package com.tvimobile.lichvansufree.helper;
 
 import java.net.URL;
 import java.net.URLConnection;

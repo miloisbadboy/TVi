@@ -1,4 +1,4 @@
-package com.example.lichvansu.datecalendar;
+package com.tvimobile.lichvansufree.datecalendar;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.lichvansu.R;
+import com.tvimobile.lichvansufree.R;
 
 public class DateCalendarMainElement extends Fragment {
 

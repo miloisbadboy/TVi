@@ -1,23 +1,18 @@
-package com.example.lichvansu.dateconverter;
+package com.tvimobile.lichvansufree.dateconverter;
 
 import java.util.Calendar;
-import java.util.Currency;
 
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.lichvansu.R;
-import com.example.lichvansu.helper.MyDateHelper;
+import com.tvimobile.lichvansufree.R;
+import com.tvimobile.lichvansufree.helper.MyDateHelper;
 
 public class DateConverterFragment extends Fragment implements NumberPicker.OnValueChangeListener {
 	private NumberPicker _numberPickerDate, _numberPickerMonth,
@@ -95,11 +90,7 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 				_imgMode.animate().rotationBy(180).setDuration(duration);
 
 				if (_isSolar) {
-					_lunarDate = MyDateHelper.convertSolar2Lunar(
-						_solarDate[0],
-						_solarDate[1],
-						_solarDate[2]);
-
+					convertSolarToLunar();
 					_isSolar = false;
 					updatePicker();
 
@@ -107,19 +98,15 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 					boolean isLeap = (leapMonth != MyDateHelper.INVALID_RESULT);
 
 					_numberPickerDate.setValue(_lunarDate[0]);
-					if (isLeap && _lunarDate[1] > leapMonth || _lunarDate[3] != 0) {
+					if (isLeap && _lunarDate[1] > leapMonth
+							|| _lunarDate[3] != 0) {
 						_numberPickerMonth.setValue(_lunarDate[1] + 1);
 					} else {
 						_numberPickerMonth.setValue(_lunarDate[1]);
 					}
 					_numberPickerYear.setValue(_lunarDate[2]);
 				} else {
-					_solarDate = MyDateHelper.convertLunar2Solar(
-						_lunarDate[0],
-						_lunarDate[1],
-						_lunarDate[2],
-						_lunarDate[3] != 0);
-
+					convertLunarToSolar();
 					_isSolar = true;
 					updatePicker();
 
@@ -234,23 +221,17 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 	}
 
 	private void convertSolarToLunar() {
-		// int[] result = MyDateHelper.convertSolar2Lunar(
-		// numberPickerDate.getValue(), numberPickerMonth.getValue(),
-		// numberPickerYear.getValue(), 7.00);
-		//
-		// numberPickerDateLunar.setValue(result[0]);
-		// numberPickerMonthLunar.setValue(result[1]);
-		// numberPickerYearLunar.setValue(result[2]);
+		_lunarDate = MyDateHelper.convertSolar2Lunar(
+			_solarDate[0],
+			_solarDate[1],
+			_solarDate[2]);
 	}
 
 	private void convertLunarToSolar() {
-		// int[] result = MyDateHelper.convertLunar2Solar(
-		// numberPickerDateLunar.getValue(),
-		// numberPickerMonthLunar.getValue(),
-		// numberPickerYearLunar.getValue(), 0, 7.00);
-		//
-		// numberPickerDate.setValue(result[0]);
-		// numberPickerMonth.setValue(result[1]);
-		// numberPickerYear.setValue(result[2]);
+		_solarDate = MyDateHelper.convertLunar2Solar(
+			_lunarDate[0],
+			_lunarDate[1],
+			_lunarDate[2],
+			_lunarDate[3] != 0);
 	}
 }
