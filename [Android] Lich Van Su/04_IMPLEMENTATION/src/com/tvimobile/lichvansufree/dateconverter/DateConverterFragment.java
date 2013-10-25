@@ -100,7 +100,8 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 					_numberPickerDate.setValue(_lunarDate[0]);
 					if (isLeap && _lunarDate[1] > leapMonth
 							|| _lunarDate[3] != 0) {
-						_numberPickerMonth.setValue(_lunarDate[1] + 1);
+						_numberPickerMonth
+								.setValue((_lunarDate[1] + 1) % 13 + 1);
 					} else {
 						_numberPickerMonth.setValue(_lunarDate[1]);
 					}
@@ -155,6 +156,9 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 			}
 
 			_numberPickerMonth.setMinValue(1);
+			_numberPickerMonth.setDisplayedValues(new String[] { "Giêng",
+					"Hai", "Ba", "Tư", "Năm", "Sáu", "Bảy", "Tám", "Chín",
+					"Mười", "Mười một", "Chạp", "" });
 			if (isLeap) {
 				_numberPickerMonth.setMaxValue(13);
 				String[] strMonths = new String[] { "Giêng", "Hai", "Ba", "Tư",
@@ -169,9 +173,7 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 				_numberPickerMonth.setDisplayedValues(strMonths);
 			} else {
 				_numberPickerMonth.setMaxValue(12);
-				_numberPickerMonth.setDisplayedValues(new String[] { "Giêng",
-						"Hai", "Ba", "Tư", "Năm", "Sáu", "Bảy", "Tám", "Chín",
-						"Mười", "Mười một", "Chạp" });
+
 			}
 		}
 	}
@@ -187,6 +189,7 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 			} else if (picker.equals(_numberPickerYear)) {
 				_solarDate[2] = newVal;
 			}
+			convertSolarToLunar();
 		} else {
 			if (picker.equals(_numberPickerDate)) {
 				_lunarDate[0] = newVal;
@@ -217,6 +220,7 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 					_lunarDate[3] = 0;
 				}
 			}
+			convertLunarToSolar();
 		}
 	}
 
