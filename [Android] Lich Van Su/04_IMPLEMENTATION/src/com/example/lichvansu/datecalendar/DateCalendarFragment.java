@@ -287,7 +287,7 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 					public void run() {
 						_isAnimating = false;
 					}
-				}, (long) (Long.parseLong(getResources().getString(R.string.slide_duration)) * 1.1));
+				}, (long) (Long.parseLong(getResources().getString(R.string.animation_duration)) * 1.2));
 			}
 			
 			

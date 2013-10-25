@@ -73,22 +73,23 @@
 		android:layout_alignRight="@+id/txt_picker_year" />
 
 	<ImageView
-		android:id="@+id/icon"
+		android:id="@+id/img_mode"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_below="@+id/numpicker_month"
 		android:layout_centerHorizontal="true"
 		android:layout_marginTop="30dp"
+		android:contentDescription="@string/blank"
 		android:src="@drawable/icon_yinyang" />
 
 	<TextView
-		android:id="@+id/txt_solar"
+		android:id="@+id/txt_lunar"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_alignBottom="@+id/icon"
+		android:layout_alignBottom="@+id/img_mode"
 		android:layout_alignRight="@+id/numpicker_year"
-		android:layout_alignTop="@+id/icon"
-		android:layout_toRightOf="@+id/icon"
+		android:layout_alignTop="@+id/img_mode"
+		android:layout_toRightOf="@+id/img_mode"
 		android:gravity="center"
 		android:padding="0dp"
 		android:text="Âm lịch"
@@ -98,13 +99,13 @@
 		android:textStyle="bold" />
 
 	<TextView
-		android:id="@+id/txt_lunar"
+		android:id="@+id/txt_solar"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_alignBottom="@+id/icon"
+		android:layout_alignBottom="@+id/img_mode"
 		android:layout_alignLeft="@+id/numpicker_date"
-		android:layout_alignTop="@+id/icon"
-		android:layout_toLeftOf="@+id/icon"
+		android:layout_alignTop="@+id/img_mode"
+		android:layout_toLeftOf="@+id/img_mode"
 		android:gravity="center"
 		android:padding="0dp"
 		android:text="Dương lịch"
