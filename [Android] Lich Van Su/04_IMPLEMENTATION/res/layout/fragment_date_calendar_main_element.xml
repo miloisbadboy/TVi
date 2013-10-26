@@ -8,8 +8,8 @@
 
 	<ImageView
 		android:id="@+id/img_background"
-		android:layout_width="280dp"
-		android:layout_height="280dp"
+		android:layout_width="275dp"
+		android:layout_height="275dp"
 		android:layout_centerHorizontal="true"
 		android:layout_centerVertical="true"
 		android:contentDescription="@string/blank"
