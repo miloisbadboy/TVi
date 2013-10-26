@@ -1,8 +1,5 @@
 package com.tvimobile.lichvansufree;
 
-import com.tvimobile.lichvansufree.R;
-import com.tvimobile.lichvansufree.R.layout;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

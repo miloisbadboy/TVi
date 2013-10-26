@@ -3,8 +3,6 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="@color/white"
-	android:padding="10dp"
-	android:paddingBottom="0dp"
 	tools:context=".DateConverterFragment" >
 
 	<TextView
@@ -13,6 +11,7 @@
 		android:layout_height="wrap_content"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentTop="true"
+		android:layout_marginLeft="10dp"
 		android:layout_marginTop="5dp"
 		android:gravity="center_horizontal"
 		android:text="@string/date"
@@ -41,6 +40,7 @@
 		android:layout_alignBottom="@+id/txt_picker_date"
 		android:layout_alignParentRight="true"
 		android:layout_alignTop="@+id/txt_picker_date"
+		android:layout_marginRight="10dp"
 		android:gravity="center_horizontal"
 		android:text="@string/year"
 		android:textColor="@color/blue"
@@ -62,7 +62,8 @@
 		android:layout_height="wrap_content"
 		android:layout_alignBottom="@+id/numpicker_date"
 		android:layout_alignLeft="@+id/txt_picker_month"
-		android:layout_alignRight="@+id/txt_picker_month" />
+		android:layout_alignRight="@+id/txt_picker_month"
+		android:layout_alignTop="@+id/numpicker_date" />
 
 	<NumberPicker
 		android:id="@+id/numpicker_year"
@@ -70,15 +71,16 @@
 		android:layout_height="wrap_content"
 		android:layout_alignBottom="@+id/numpicker_date"
 		android:layout_alignLeft="@+id/txt_picker_year"
-		android:layout_alignRight="@+id/txt_picker_year" />
+		android:layout_alignRight="@+id/txt_picker_year"
+		android:layout_alignTop="@+id/numpicker_date" />
 
 	<ImageView
 		android:id="@+id/img_mode"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_below="@+id/numpicker_month"
+		android:layout_above="@+id/element_detail"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="30dp"
+		android:layout_marginBottom="5dp"
 		android:contentDescription="@string/blank"
 		android:src="@drawable/icon_yinyang" />
 
@@ -92,7 +94,7 @@
 		android:layout_toRightOf="@+id/img_mode"
 		android:gravity="center"
 		android:padding="0dp"
-		android:text="Âm lịch"
+		android:text="@string/lunar_calendar"
 		android:textAllCaps="true"
 		android:textColor="@color/blue"
 		android:textSize="18sp"
@@ -108,10 +110,29 @@
 		android:layout_toLeftOf="@+id/img_mode"
 		android:gravity="center"
 		android:padding="0dp"
-		android:text="Dương lịch"
+		android:text="@string/solar_calendar"
 		android:textAllCaps="true"
 		android:textColor="@color/red"
 		android:textSize="18sp"
 		android:textStyle="bold" />
+
+	<FrameLayout
+		android:id="@+id/element_detail"
+		android:layout_width="match_parent"
+		android:layout_height="160dp"
+		android:layout_alignParentBottom="true"
+		android:layout_marginBottom="@dimen/admob_height" >
+	</FrameLayout>
+
+	<com.google.ads.AdView
+		xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+		android:id="@+id/adView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		ads:adSize="BANNER"
+		ads:adUnitId="a1526a434b0848b"
+		ads:loadAdOnCreate="true"
+		ads:testDevices="TEST_EMULATOR, C6E74EE31B78FBA86E35B3D90C9DDA55" />
 
 </RelativeLayout>

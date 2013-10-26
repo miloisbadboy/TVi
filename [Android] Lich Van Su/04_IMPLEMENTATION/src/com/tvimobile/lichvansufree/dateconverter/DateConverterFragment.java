@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
 import com.tvimobile.lichvansufree.R;
 import com.tvimobile.lichvansufree.helper.MyDateHelper;
 
@@ -49,6 +51,9 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 			_solarDate[0],
 			_solarDate[1],
 			_solarDate[2]);
+
+		getChildFragmentManager().beginTransaction()
+				.add(R.id.element_detail, getDetailElement()).commit();
 
 		// Date picker
 		_numberPickerDate = (NumberPicker) _masterView
@@ -90,25 +95,25 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 				_imgMode.animate().rotationBy(180).setDuration(duration);
 
 				if (_isSolar) {
-					convertSolarToLunar();
 					_isSolar = false;
+					convertSolarToLunar();
 					updatePicker();
 
 					int leapMonth = MyDateHelper.isLunarLeapYear(_lunarDate[2]);
 					boolean isLeap = (leapMonth != MyDateHelper.INVALID_RESULT);
 
 					_numberPickerDate.setValue(_lunarDate[0]);
-					if (isLeap && _lunarDate[1] > leapMonth
+					if ((isLeap && _lunarDate[1] > leapMonth)
 							|| _lunarDate[3] != 0) {
 						_numberPickerMonth
-								.setValue((_lunarDate[1] + 1) % 13 + 1);
+								.setValue(_lunarDate[1] % 13 + 1);
 					} else {
 						_numberPickerMonth.setValue(_lunarDate[1]);
 					}
 					_numberPickerYear.setValue(_lunarDate[2]);
 				} else {
-					convertLunarToSolar();
 					_isSolar = true;
+					convertLunarToSolar();
 					updatePicker();
 
 					_numberPickerDate.setValue(_solarDate[0]);
@@ -122,6 +127,10 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 		_numberPickerDate.setValue(_solarDate[0]);
 		_numberPickerMonth.setValue(_solarDate[1]);
 		_numberPickerYear.setValue(_solarDate[2]);
+
+		// Look up the AdView as a resource and load a request.
+		AdView adView = (AdView) _masterView.findViewById(R.id.adView);
+		adView.loadAd(new AdRequest());
 
 		return _masterView;
 	}
@@ -229,6 +238,9 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 			_solarDate[0],
 			_solarDate[1],
 			_solarDate[2]);
+
+		getChildFragmentManager().beginTransaction()
+				.replace(R.id.element_detail, getDetailElement()).commit();
 	}
 
 	private void convertLunarToSolar() {
@@ -237,5 +249,52 @@ public class DateConverterFragment extends Fragment implements NumberPicker.OnVa
 			_lunarDate[1],
 			_lunarDate[2],
 			_lunarDate[3] != 0);
+
+		getChildFragmentManager().beginTransaction()
+				.replace(R.id.element_detail, getDetailElement()).commit();
+	}
+
+	private Fragment getDetailElement() {
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.DATE, _solarDate[0]);
+		calendar.set(Calendar.MONTH, _solarDate[1]);
+		calendar.set(Calendar.YEAR, _solarDate[2]);
+
+		boolean isHoliday = false;
+		if (calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+			isHoliday = true;
+		}
+
+		// Lunar date title
+		int[] lunarDateTitle = MyDateHelper.getLunarDateTitle(
+			_lunarDate[0],
+			_lunarDate[1],
+			_lunarDate[2],
+			_lunarDate[3] != 0);
+
+		// Lunar month title
+		int[] lunarMonthTitle = MyDateHelper.getLunarMonthTitle(
+			_lunarDate[1],
+			_lunarDate[2]);
+
+		// Lunar year title
+		int[] lunarYearTitle = MyDateHelper.getLunarYearTitle(_lunarDate[2]);
+
+		Fragment frag = DateConverterDetailElement.newInstance(
+			_isSolar,
+			_solarDate[0],
+			_solarDate[1],
+			_solarDate[2],
+			calendar.get(Calendar.DAY_OF_WEEK),
+			_lunarDate[0],
+			_lunarDate[1],
+			_lunarDate[2],
+			_lunarDate[3],
+			isHoliday,
+			lunarDateTitle,
+			lunarMonthTitle,
+			lunarYearTitle);
+
+		return frag;
 	}
 }

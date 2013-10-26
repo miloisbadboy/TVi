@@ -15,6 +15,19 @@
 		android:id="@+id/element_detail"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
+		android:layout_alignParentBottom="true"
 		android:layout_below="@+id/element_main" >
 	</FrameLayout>
-</RelativeLayout>
+
+	<com.google.ads.AdView
+		xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+		android:id="@+id/adView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		ads:adSize="BANNER"
+		ads:adUnitId="a1526a434b0848b"
+		ads:loadAdOnCreate="true"
+		ads:testDevices="TEST_EMULATOR, C6E74EE31B78FBA86E35B3D90C9DDA55" />
+
+</RelativeLayout>

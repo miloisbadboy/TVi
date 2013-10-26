@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//src/com/tvimobile/lichvansufree/MainActivity.java=UTF-8
 encoding//src/com/tvimobile/lichvansufree/datecalendar/DateCalendarDetailElement.java=UTF-8
 encoding//src/com/tvimobile/lichvansufree/datecalendar/DateCalendarMainElement.java=UTF-8
+encoding//src/com/tvimobile/lichvansufree/dateconverter/DateConverterDetailElement.java=UTF-8
 encoding//src/com/tvimobile/lichvansufree/dateconverter/DateConverterFragment.java=UTF-8
 encoding//src/com/tvimobile/lichvansufree/helper/MyDateHelper.java=UTF-8
 encoding//src/com/tvimobile/lichvansufree/monthcalendar/MonthCalendarElementFragment.java=UTF-8

@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
+import com.google.ads.AdRequest;
+import com.google.ads.AdView;
 import com.tvimobile.lichvansufree.R;
 import com.tvimobile.lichvansufree.helper.MyDateHelper;
 
@@ -25,7 +27,7 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 	private GestureDetector _gestureDetector;
 	private View.OnTouchListener _gestureListener;
 	private boolean _isAnimating = false;
-	private Calendar currentDate;	
+	private Calendar currentDate;
 
 	{
 		_gestureDetector = new GestureDetector(
@@ -56,6 +58,10 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 		getChildFragmentManager().beginTransaction()
 				.add(R.id.element_detail, getDetailElement(currentDate))
 				.commit();
+
+		// Look up the AdView as a resource and load a request.
+		AdView adView = (AdView) view.findViewById(R.id.adView);
+		adView.loadAd(new AdRequest());
 
 		return view;
 	}
@@ -209,8 +215,7 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 			lunarDate[2]);
 
 		// Lunar year title
-		int[] lunarYearTitle = MyDateHelper.getLunarYearTitle(currentDate
-				.get(Calendar.YEAR));
+		int[] lunarYearTitle = MyDateHelper.getLunarYearTitle(lunarDate[2]);
 
 		// Hour status
 		int lunarHourStatus = MyDateHelper.getLunarHourStatusOnDate(
@@ -251,7 +256,7 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 				float velocityY) {
 			if (_isAnimating)
 				return false;
-			
+
 			try {
 				if (Math.abs(e1.getY() - e2.getY()) > Math.abs(e1.getX()
 						- e2.getX())) {
@@ -279,18 +284,20 @@ public class DateCalendarFragment extends Fragment implements OnClickListener {
 			} catch (Exception e) {
 				// TODO catch exception
 			}
-			
-			if (_isAnimating) {
-				new Handler().postDelayed(new Runnable() {
 
-					@Override
-					public void run() {
-						_isAnimating = false;
-					}
-				}, (long) (Long.parseLong(getResources().getString(R.string.animation_duration)) * 1.2));
+			if (_isAnimating) {
+				new Handler().postDelayed(
+					new Runnable() {
+
+						@Override
+						public void run() {
+							_isAnimating = false;
+						}
+					},
+					(long) (Long.parseLong(getResources().getString(
+						R.string.animation_duration)) * 1.2));
 			}
-			
-			
+
 			return _isAnimating;
 		}
 	}
