@@ -8,12 +8,12 @@
 
 	<ImageView
 		android:id="@+id/img_background"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true"
-		android:layout_alignParentTop="true"
-		android:layout_marginTop="8dp"
+		android:layout_width="280dp"
+		android:layout_height="280dp"
+		android:layout_centerHorizontal="true"
+		android:layout_centerVertical="true"
 		android:contentDescription="@string/blank"
+		android:scaleType="fitXY"
 		android:src="@drawable/zodiac_dragon_red" />
 
 	<TextView
@@ -35,11 +35,11 @@
 		android:layout_height="wrap_content"
 		android:layout_alignParentTop="true"
 		android:layout_centerHorizontal="true"
-		android:layout_marginTop="24dp"
+		android:layout_marginTop="20dp"
 		android:fontFamily="Arial"
 		android:text=""
 		android:textColor="@color/blue"
-		android:textSize="174sp"
+		android:textSize="162sp"
 		android:textStyle="bold"
 		magictext:outerShadowColor="@color/black"
 		magictext:outerShadowDx="3"

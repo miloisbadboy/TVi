@@ -8,15 +8,15 @@
 	<FrameLayout
 		android:id="@+id/element_main"
 		android:layout_width="match_parent"
-		android:layout_height="320dp" >
+		android:layout_height="280dp" >
 	</FrameLayout>
 
 	<FrameLayout
 		android:id="@+id/element_detail"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
+		android:layout_height="160dp"
 		android:layout_alignParentBottom="true"
-		android:layout_below="@+id/element_main" >
+		android:layout_marginBottom="@dimen/admob_height" >
 	</FrameLayout>
 
 	<com.google.ads.AdView
